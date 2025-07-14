@@ -1,0 +1,202 @@
+cache-dir = ".cache/ruff"
+extend-exclude = [".cache"]
+fix = true
+line-length = 80
+preview = true
+src = [".", "src", "tests"]
+target-version = "py312"
+
+[format]
+docstring-code-format = true
+line-ending = "lf"
+
+[lint]
+select = [
+  # pyflakes
+  "F",
+  # pycodestyle
+  "E",
+  "W",
+  # mccabe
+  "C90",
+  # isort
+  "I",
+  # pep8-naming
+  "N",
+  # pydocstyle
+  "D",
+  # pyupgrade
+  "UP",
+  # flake8-annotations
+  "ANN",
+  # flake8-async,
+  "ASYNC",
+  # flake8-bandit
+  "S",
+  # flake8-blind-except
+  "BLE",
+  # flake8-boolean-trap
+  "FBT",
+  # flake8-bugbear
+  "B",
+  # flake8-builtins
+  "A",
+  # flake8-commas
+  "COM",
+  # flake8-comprehensions
+  "C4",
+  # flake8-datetimez
+  "DTZ",
+  # flake8-debugger
+  "T10",
+  # flake8-django
+  # "DJ",
+  # flake8-errmsg
+  "EM",
+  # flake8-executable
+  "EXE",
+  # flake8-future-annotations
+  "FA",
+  # flake8-implicit-str-concat
+  "ISC",
+  # flake8-import-conventions
+  "ICN",
+  # flake8-logging
+  "LOG",
+  # flake8-logging-format
+  "G",
+  # flake8-no-pep420
+  "INP",
+  # flake8-pie
+  "PIE",
+  # flake8-print
+  "T20",
+  # flake8-pyi
+  "PYI",
+  # flake8-pytest-style
+  "PT",
+  # flake8-quotes
+  "Q",
+  # flake8-raise
+  "RSE",
+  # flake8-return
+  "RET",
+  # flake8-self
+  "SLF",
+  # flake8-slots
+  "SLOT",
+  # flake8-simplify
+  "SIM",
+  # flake8-tidy-imports
+  "TID",
+  # flake8-type-checking
+  "TC",
+  # flake8-unused-arguments
+  "ARG",
+  # flake8-use-pathlib
+  "PTH",
+  # flake8-todos
+  "TD",
+  # flake8-fixme
+  "FIX",
+  # eradicate
+  "ERA",
+  # pandas-vet
+  "PD",
+  # pygrep-hooks
+  "PGH",
+  # Pylint
+  "PL",
+  # tryceratops
+  "TRY",
+  # flynt
+  "FLY",
+  # NumPy-specific rules
+  "NPY",
+  # "AIR",
+  # Perflint
+  "PERF",
+  # refurb
+  "FURB",
+  # pydoclint
+  "DOC",
+  # Ruff-specific rules
+  "RUF",
+]
+ignore = [
+  # Missing docstring in public module
+  "D100",
+  # Missing docstring in public class
+  "D101",
+  # Missing docstring in public method
+  "D102",
+  # Missing docstring in public function
+  "D103",
+  # Missing docstring in public package
+  "D104",
+  # Missing docstring in magic method
+  "D105",
+  # Missing docstring in __init__
+  "D107",
+  # Trailing comma missing
+  "COM812",
+  # Implicitly concatenated string literals on one line
+  "ISC001",
+]
+typing-modules = ["numpy.typing"]
+
+[lint.per-file-ignores]
+"**/scripts/*" = [
+  # `print` found
+  "T201",
+  # File {filename} is part of an implicit namespace package. Add an __init__.py.
+  "INP001",
+]
+"**/tests/**/*" = [
+  # Missing docstring in public function
+  "D103",
+  # Use of assert detected
+  "S101",
+]
+
+
+[lint.flake8-import-conventions.extend-aliases]
+scipy = "sp"
+
+[lint.flake8-pytest-style]
+fixture-parentheses = true
+mark-parentheses = true
+
+[lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[lint.flake8-type-checking]
+exempt-modules = ["typing", "typing_extensions"]
+strict = true
+
+[lint.isort]
+length-sort = true
+lines-after-imports = 2
+required-imports = ["from __future__ import annotations"]
+section-order = [
+  "future",
+  "standard-library",
+  "third-party",
+  "testing",
+  "first-party",
+  "local-folder",
+]
+known-first-party = ['vecmodel']
+
+[lint.isort.sections]
+testing = ["pytest", "pytest_mock", "numpy.testing", "hypothesis"]
+
+[lint.mccabe]
+max-complexity = 6
+
+
+[lint.pycodestyle]
+max-doc-length = 80
+
+[lint.pydocstyle]
+convention = "google"
