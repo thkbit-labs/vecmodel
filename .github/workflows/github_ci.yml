@@ -26,7 +26,7 @@ jobs:
 
       - name: Install dependencies with uv
         run: |
-          uv sync --all-package00
+          uv sync --all-packages
 
       - name: Run Unit Tests
         run: |
