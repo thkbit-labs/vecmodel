@@ -6,8 +6,8 @@ on:
       - "v*" # Trigger on version tags
 
 jobs:
-  needs: test
   build-and-publish:
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
