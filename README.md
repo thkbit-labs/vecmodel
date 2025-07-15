@@ -11,11 +11,10 @@ A model-based, ORM-inspired abstraction for vector databases.
 - CRUD operations for vector databases
 - Easy integration with popular vector DBs
 - Type-safe queries
-- etc...
 
 ## Installation
 
-To get started with `vecmodel`, simply install the package and its dependencies, then import the necessary modules:
+To get started with `vecmodel`, install the package along with its dependencies, then import the necessary modules.
 
 ```bash
 pip install vecmodel
