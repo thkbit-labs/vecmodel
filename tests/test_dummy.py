@@ -1,2 +1,5 @@
-def test_addition():
-    assert 1 + 1 == 2
+from __future__ import annotations
+
+
+def test_dummy() -> None:
+    pass
