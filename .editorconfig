@@ -14,10 +14,7 @@ trim_trailing_whitespace = true
 [*.py]
 indent_size = 4
 
-[*.ipynb]
-indent_size = 4
-
-[Justfile]
+[Makefile]
 indent_size = 4
 
 [*Dockerfile*]
