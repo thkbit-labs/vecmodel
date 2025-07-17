@@ -1,5 +1,1 @@
-from __future__ import annotations
-
-
-def main() -> None:
-    pass
+from .__version__ import __version__
