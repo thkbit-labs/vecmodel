@@ -5,7 +5,6 @@ PROJECT_SLUG  := vecmodel
 COLOR         :=\033[0;32m
 NC            :=\033[00m
 
-
 .PHONY: help
 help: ## Show this help message
 	@echo ''
@@ -14,13 +13,19 @@ help: ## Show this help message
 	@echo ''
 
 .PHONY: uv
-uv: ## Install uv, a virtual environment manager
-	@command -v uv >/dev/null 2>&1 || (echo "uv not found. Installing..." && curl -LsSf https://astral.sh/uv/install.sh | sh)
+uv: # Check uv 
+	@command -v uv >/dev/null 2>&1 || \
+	(echo "uv not found. Please install uv manually: https://astral.sh/uv/" && exit 1)
 
-.PHONY: format
-format: ## Auto-format source files
-	uv run ruff check --fix .
-	uv run ruff format .
+.PHONY: install
+install: ## Install package, dependencies, and pre-commit for local development
+	uv sync --all-packages
+	pre-commit install  --install hooks
+
+.PHONY: upgrade
+upgrade: ## Update all dependencies
+	uv lock --upgrade
+	pre-commit autoupdate
 
 .PHONY: lint
 lint: ## Run linter python source files
@@ -28,12 +33,16 @@ lint: ## Run linter python source files
 	uv run ruff format --check .
 
 .PHONY: typecheck
-typecheck: ## Run type checks with mypy
+typecheck: ## Perform type-checking
 	uv run mypy .
 
 .PHONY: test
 test: ## Run all tests
-	uv run pytest
+	uv run pytest -m "not slow"
+
+.PHONY: build
+build: ## Build package
+	uv build --all-packages
 
 .PHONY: clean
 clean: ## Clear local caches and build artifacts
