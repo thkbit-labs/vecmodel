@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up python
         uses: actions/setup-python@v4
         with:
           python-version: "3.12"
@@ -31,12 +31,7 @@ jobs:
           uv run ruff check .
           uv run ruff format --check .
 
-      - name: Run format source files
-        run: |
-          uv run ruff check --fix .
-          uv run ruff format .
-
-      - name: Run Unit Tests
+      - name: Run unit tests
         run: |
           uv run pytest --cov=src --cov-report=xml --cov-report=html --cov-fail-under=0
 
@@ -45,5 +40,4 @@ jobs:
         with:
           files: coverage.xml
           flags: unittests
-          name: codecov-coverage
           token: ${{ secrets.CODECOV_TOKEN }}
