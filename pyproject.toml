@@ -1,6 +1,6 @@
 [project]
 name = "vecmodel"
-version = "0.1.0"
+version = "0.0.0"
 description = "A model-based, ORM-inspired abstraction for vector databases."
 readme = "README.md"
 authors = [{ name = "HungLM1506", email = "leminhhung933@gmail.com" }]
