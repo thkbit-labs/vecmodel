@@ -15,7 +15,7 @@ help: ## Show this help message
 .PHONY: uv
 uv: # Check uv 
 	@command -v uv >/dev/null 2>&1 || \
-	(echo "uv not found. Please install uv manually: https://astral.sh/uv/" && exit 1)
+	(echo "uv not found. Please install uv manually: https://astral.sh/uv/")
 
 .PHONY: install
 install: ## Install package, dependencies, and pre-commit for local development
