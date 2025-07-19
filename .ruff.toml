@@ -31,6 +31,8 @@ ignore = [
   "COM812",
   # Implicitly concatenated string literals on one line
   "ISC001",
+  # Specifically disables the missing copyright notice rule
+  "CPY001",
 ]
 typing-modules = ["numpy.typing"]
 
@@ -71,7 +73,7 @@ section-order = [
 known-first-party = ['vecmodel']
 
 [lint.isort.sections]
-testing = ["pytest", "pytest_mock", "numpy.testing", "hypothesis"]
+testing = ["pytest", "pytest_mock", "hypothesis"]
 
 [lint.mccabe]
 max-complexity = 6
