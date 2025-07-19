@@ -13,7 +13,7 @@ help: ## Show this help message
 	@echo ''
 
 .PHONY: uv
-uv: # Check uv 
+uv: # Check uv
 	@command -v uv >/dev/null 2>&1 || \
 	(echo "uv not found. Please install uv manually: https://astral.sh/uv/")
 
