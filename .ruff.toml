@@ -31,7 +31,7 @@ ignore = [
   "COM812",
   # Implicitly concatenated string literals on one line
   "ISC001",
-  # Specifically disables the missing copyright notice rule
+  # Missing copyright notice at top of file
   "CPY001",
 ]
 typing-modules = ["numpy.typing"]
