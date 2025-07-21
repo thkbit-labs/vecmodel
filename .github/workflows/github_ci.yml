@@ -14,13 +14,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.12"
-
       - name: Install the latest version of uv
         uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
 
       - name: Install dependencies with uv
         run: |
@@ -28,8 +25,7 @@ jobs:
 
       - name: Run linter python source files
         run: |
-          uv run ruff check .
-          uv run ruff format --check .
+          make lint
 
       - name: Run unit tests
         run: |
