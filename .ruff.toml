@@ -1,0 +1,85 @@
+cache-dir = ".cache/ruff"
+extend-exclude = [".cache"]
+fix = true
+line-length = 80
+preview = true
+src = [".", "src", "tests"]
+target-version = "py312"
+
+[format]
+docstring-code-format = true
+line-ending = "lf"
+
+[lint]
+select = ["ALL"]
+ignore = [
+  # Missing docstring in public module
+  "D100",
+  # Missing docstring in public class
+  "D101",
+  # Missing docstring in public method
+  "D102",
+  # Missing docstring in public function
+  "D103",
+  # Missing docstring in public package
+  "D104",
+  # Missing docstring in magic method
+  "D105",
+  # Missing docstring in __init__
+  "D107",
+  # Trailing comma missing
+  "COM812",
+  # Implicitly concatenated string literals on one line
+  "ISC001",
+  # Missing copyright notice at top of file
+  "CPY001",
+]
+typing-modules = ["numpy.typing"]
+
+[lint.per-file-ignores]
+"**/scripts/*" = [
+  # `print` found
+  "T201",
+  # File {filename} is part of an implicit namespace package. Add an __init__.py.
+  "INP001",
+]
+
+[lint.flake8-import-conventions.extend-aliases]
+scipy = "sp"
+
+[lint.flake8-pytest-style]
+fixture-parentheses = true
+mark-parentheses = true
+
+[lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[lint.flake8-type-checking]
+exempt-modules = ["typing", "typing_extensions"]
+strict = true
+
+[lint.isort]
+length-sort = true
+lines-after-imports = 2
+required-imports = ["from __future__ import annotations"]
+section-order = [
+  "future",
+  "standard-library",
+  "third-party",
+  "testing",
+  "first-party",
+  "local-folder",
+]
+known-first-party = ['vecmodel']
+
+[lint.isort.sections]
+testing = ["pytest", "pytest_mock", "hypothesis"]
+
+[lint.mccabe]
+max-complexity = 6
+
+[lint.pycodestyle]
+max-doc-length = 80
+
+[lint.pydocstyle]
+convention = "google"
